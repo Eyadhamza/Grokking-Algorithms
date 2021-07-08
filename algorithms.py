@@ -13,5 +13,5 @@ def binary_search(list,searchItem):
             highIndex = midIndex - 1
         else:
             lowIndex = midIndex + 1
-        return None
+    return None
 
