@@ -30,5 +30,18 @@ def selectionSort(arr):
     newArr = []
     for i in range(len(arr)):
         smallest = findSmallest(arr)
-        newArr.append(arr.pop(smallest))
+        smallestElement = arr.pop(smallest)
+        newArr.append(smallestElement)
     return newArr
+
+
+def quicksort(arr):
+    if len(arr) < 2:
+        return arr
+
+    else:
+        pivot = arr[0]
+        numberLessThanPivot = [i for i in arr[1:] if i <= pivot]
+        numberGreaterThanPivot = [i for i in arr[1:] if i > pivot]
+
+        return quicksort(numberLessThanPivot) + [pivot] + quicksort(numberGreaterThanPivot)

@@ -18,3 +18,9 @@ class TestAlgorithms(unittest.TestCase):
         result = algorithms.selectionSort(myList)
 
         self.assertListEqual(result, [2, 3, 5, 6, 10])
+
+    def test_quick_sort(self):
+        myList = [5, 3, 6, 2, 10]
+        result = algorithms.quicksort(myList)
+
+        self.assertListEqual(result, [2, 3, 5, 6, 10])
