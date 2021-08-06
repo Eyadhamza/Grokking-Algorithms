@@ -24,3 +24,16 @@ class TestAlgorithms(unittest.TestCase):
         result = algorithms.quicksort(myList)
 
         self.assertListEqual(result, [2, 3, 5, 6, 10])
+
+    def test_breadth_first_search(self):
+        graph = {
+            "you": ["alice", "bob", "claire"],
+            "bob": ["anuj", "peggy"],
+            "alice": ["peggy"],
+            "claire": ["thom", "jonny"],
+            "peggy": [],
+            "anuj": [],
+            "thom": [],
+            "jonny": [],
+        }
+        algorithms.breadth_first_search(graph,"you")

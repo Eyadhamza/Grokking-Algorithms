@@ -1,3 +1,6 @@
+from collections import deque
+
+
 def binary_search(list, searchItem):
     lowIndex = 0
     highIndex = len(list) - 1
@@ -41,7 +44,28 @@ def quicksort(arr):
 
     else:
         pivot = arr[0]
-        numberLessThanPivot = [i for i in arr[1:] if i <= pivot]
-        numberGreaterThanPivot = [i for i in arr[1:] if i > pivot]
+        numbersLessThanPivot = [i for i in arr[1:] if i <= pivot]
+        numbersGreaterThanPivot = [i for i in arr[1:] if i > pivot]
 
-        return quicksort(numberLessThanPivot) + [pivot] + quicksort(numberGreaterThanPivot)
+        return quicksort(numbersLessThanPivot) + [pivot] + quicksort(numbersGreaterThanPivot)
+
+
+def breadth_first_search(graph, name):
+    search_queue = deque()
+
+    search_queue += graph[name]
+    searched = []
+    while search_queue:
+        person = search_queue.popleft()
+        if not person in searched:
+            if personIsSeller(person):
+                print(person + " is a mango seller")
+                return True
+            else:
+                search_queue += graph[person]
+                searched.append(person)
+    return False
+
+
+def personIsSeller(person):
+    return person[-1] == 'm'
