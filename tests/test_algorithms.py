@@ -36,4 +36,9 @@ class TestAlgorithms(unittest.TestCase):
             "thom": [],
             "jonny": [],
         }
-        algorithms.breadth_first_search(graph,"you")
+
+        self.assertTrue(algorithms.breadth_first_search(graph, "you"))
+
+    def test_dijkstra_graph(self):
+
+        self.assertDictEqual(algorithms.dijkstraGraph(),{'a': 'b', 'b': 'start', 'fin': 'b'})
